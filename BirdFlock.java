@@ -21,4 +21,18 @@ public class BirdFlock extends ArrayList<Bird>  {
             b.fly();
     }
 
+    public int countInCircle(int x, int y, int radius){
+        int count = 0;
+
+        for(Bird b: this){
+            int dx = b.getX() - x;
+            int dy = b.getY() - y;
+
+            if(dx * dx + dy * dy <= radius * radius)
+                count++;
+        }
+
+        return count;
+    }
+
 }
