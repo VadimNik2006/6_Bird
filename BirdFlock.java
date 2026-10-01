@@ -1,23 +1,23 @@
 import java.util.ArrayList;
 
-public class BirdFlock {
-    private ArrayList<Bird> birds;
+public class BirdFlock extends ArrayList<Bird>  {
 
-    public BirdFlock(){
-        birds = new ArrayList<>();
-    }
+    public BirdFlock(){}
 
-    public void add(Bird b){
-        if(birds.indexOf(b) == -1)
-            birds.add(b);
+    @Override
+    public boolean add(Bird b){
+        if(indexOf(b) == -1)
+            return super.add(b);
+
+        return false;
     }
 
     public int count(){
-        return birds.size();
+        return size();
     }
 
     public void fly(){
-        for(Bird b: birds)
+        for(Bird b: this)
             b.fly();
     }
 
